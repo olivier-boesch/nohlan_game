@@ -17,17 +17,18 @@ ennemis_liste = []
 
 explosions_liste = []
 
+
 def vaisseau_deplacement(x, y):
-    if pyxel.btn(pyxel.KEY_D):
+    if pyxel.btn(pyxel.KEY_D) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):
         if x < 120:
             x = x + 1
-    if pyxel.btn(pyxel.KEY_Q):
+    if pyxel.btn(pyxel.KEY_Q) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):
         if x > 0:
             x = x - 1
-    if pyxel.btn(pyxel.KEY_S):
+    if pyxel.btn(pyxel.KEY_S) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN):
         if y < 120:
             y = y + 1
-    if pyxel.btn(pyxel.KEY_Z):
+    if pyxel.btn(pyxel.KEY_Z) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_UP):
         if y > 0:
             y = y - 1
     return x, y
@@ -50,7 +51,7 @@ def ennemis_suppression():
 
 
 def tirs_creation(x, y, tirs_liste):
-    if pyxel.btnp(pyxel.KEY_SPACE, repeat=15):
+    if pyxel.btnp(pyxel.KEY_SPACE, repeat=15) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_Y, repeat=15):
        tirs_liste.append([x  , y-4])
     return tirs_liste
 
