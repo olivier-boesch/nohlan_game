@@ -35,7 +35,9 @@ def play_music():
         music = json.loads(fin.read())
 
     for ch, sound in enumerate(music):
-        pyxel.sound(ch).set(*sound)
+        s = pyxel.Sound()
+        s.set(*sound)
+        pyxel.sounds[ch] = s
         pyxel.play(ch, ch, loop=True)
 
 play_music()
